@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: add
-        image: dapriosamples/distributed-calculator-go:latest
+        image: vika1990z/adder_app:latest
         ports:
         - containerPort: 6000
         imagePullPolicy: Always
