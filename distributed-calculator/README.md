@@ -1,11 +1,12 @@
 # Distributed calculator
 
-This quickstart shows method invocation and state persistent capabilities of Dapr through a distributed calculator where each operation is powered by a different service written in a different language/framework:
+This quickstart shows method invocation and state persistent capabilities of Dapr through a distributed calculator where each operation is powered by a different service written in a go-lang:
 
-- **Addition**: Go [mux](https://github.com/gorilla/mux) application
-- **Multiplication**: Python [flask](https://flask.palletsprojects.com/en/1.0.x/) application
-- **Division**: Node [Express](https://expressjs.com/) application
-- **Subtraction**: [.NET Core](https://docs.microsoft.com/en-us/dotnet/core/) application
+- **Addition**;
+- **Multiplication**;
+- **Division**;
+- **Subtraction**;
+- **Square root**;
 
 The front-end application consists of a server and a client written in [React](https://reactjs.org/). 
 Kudos to [ahfarmer](https://github.com/ahfarmer) whose [React calculator](https://github.com/ahfarmer/calculator) 
