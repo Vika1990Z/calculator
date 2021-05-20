@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sqrtapp
+  labels:
+    app: sqrt
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sqrt
+  template:
+    metadata:
+      labels:
+        app: sqrt
+      annotations:
+        dapr.io/enabled: "true"
+        dapr.io/app-id: "sqrtapp"
+        dapr.io/app-port: "9000"
+        dapr.io/config: "appconfig"
+    spec:
+      containers:
+      - name: sqrt
+        image: vika1990z/sqrt_app:latest
+        ports:
+        - containerPort: 9000
+        imagePullPolicy: Always
