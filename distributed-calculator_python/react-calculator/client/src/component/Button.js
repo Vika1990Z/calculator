@@ -5,7 +5,7 @@ import "./Button.css";
 export default class Button extends React.Component {
   static propTypes = {
     name: PropTypes.string,
-    blue: PropTypes.bool,
+    green: PropTypes.bool,
     wide: PropTypes.bool,
     clickHandler: PropTypes.func,
   };
@@ -17,7 +17,7 @@ export default class Button extends React.Component {
   render() {
     const className = [
       "component-button",
-      this.props.blue ? "blue" : "",
+      this.props.green ? "green" : "",
       this.props.wide ? "wide" : "",
     ];
 

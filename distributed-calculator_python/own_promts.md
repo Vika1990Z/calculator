@@ -20,6 +20,27 @@ dapr run --app-id frontendapp --app-port 8080 --dapr-http-port 3500 node server.
 
 Open a browser window and go to http://localhost:8080/
 
+**Uploding to the docker**
+sudo docker build -t app.py .
+sudo docker tag app.py vika1990z/adder_app_python:latest
+sudo docker login
+sudo docker push vika1990z/adder_app_python:latest
+
+sudo docker tag app.py vika1990z/dividing_app_python:latest
+sudo docker push vika1990z/dividing_app_python:latest
+
+sudo docker tag vika1990z/react_app_python:latest
+sudo docker push vika1990z/react_app_python:latest
+
+sudo docker tag app.py vika1990z/multiplication_app_python:latest
+sudo docker push vika1990z/multiplication_app_python:latest
+
+sudo docker tag app.py vika1990z/substraction_app_python:latest
+sudo docker push vika1990z/substraction_app_python:latest
+
+sudo docker tag app.py vika1990z/sqrt_app_python:latest
+sudo docker push vika1990z/sqrt_app_python:latest
+
 **Running the quickstart in a Kubernetes environment**
 -Access to the cluster
 

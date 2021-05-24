@@ -1,4 +1,5 @@
 
+
 **Running the quickstart locally**
 cd <working dir>
 go get -u github.com/gorilla/mux
@@ -17,6 +18,28 @@ npm run buildclient
 dapr run --app-id frontendapp --app-port 8080 --dapr-http-port 3500 node server.js
 
 Open a browser window and go to http://localhost:8080/
+
+
+**Uploding to the docker**
+sudo docker build -t app.go .
+sudo docker tag app.go vika1990z/adder_app:latest
+sudo docker login
+sudo docker push vika1990z/adder_app:latest
+
+sudo docker tag app.go vika1990z/dividing_app:latest
+sudo docker push vika1990z/dividing_app:latest
+
+sudo docker tag vika1990z/react_app:latest
+sudo docker push vika1990z/react_app:latest
+
+sudo docker tag app.go vika1990z/multiplication_app:latest
+sudo docker push vika1990z/multiplication_app:latest
+
+sudo docker tag app.go vika1990z/substraction_app:latest
+sudo docker push vika1990z/substraction_app:latest
+
+sudo docker tag vika1990z/sqrt_app:latest
+sudo docker push vika1990z/sqrt_app:latest
 
 **Running the quickstart in a Kubernetes environment**
 -Access to the cluster
