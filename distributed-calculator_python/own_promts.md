@@ -1,10 +1,12 @@
 
 **Running the quickstart locally**
 cd <working dir>
-go get -u github.com/gorilla/mux
-go build app.go
-dapr run --app-id addapp --app-port 6000 --dapr-http-port 3503 ./app
+pip3 install wheel python-dotenv flask_cors flask
+export FLASK_RUN_PORT=6000
+sudo dapr run --app-id addapp --app-port 6000 --dapr-http-port 3503 flask run
 
+export FLASK_RUN_PORT=5000
+sudo dapr run --app-id multiplyapp --app-port 5000 --dapr-http-port 3501 flask run
 -----
 dapr run --app-id divideapp --app-port 4000 --dapr-http-port 3505 ./app
 dapr run --app-id multiplyapp --app-port 5000 --dapr-http-port 3508 ./app

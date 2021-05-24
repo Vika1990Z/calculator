@@ -1,5 +1,3 @@
-
-
 # ------------------------------------------------------------
 # Copyright (c) Microsoft Corporation.
 # Licensed under the MIT License.
@@ -18,8 +16,7 @@ CORS(app)
 def multiply():
     content = request.json
     [operand_one, operand_two] = [float(content['operandOne']), float(content['operandTwo'])]
-    print(f"Multiplication {operand_one} * {operand_two}", flush=True)
-    return jsonify(math.ceil(operand_one * operand_two)
+    print(f"Calculating {operand_one} * {operand_two}", flush=True)
+    return jsonify(math.ceil(operand_one * operand_two * 100000)/100000)
 
 app.run()
-

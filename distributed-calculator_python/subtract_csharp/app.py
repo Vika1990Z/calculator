@@ -19,7 +19,7 @@ def subtract():
     content = request.json
     [operand_one, operand_two] = [float(content['operandOne']), float(content['operandTwo'])]
     print(f"Subtraction from {operand_one} - {operand_two}", flush=True)
-    return jsonify(math.ceil(operand_one - operand_two)
+    return jsonify(math.ceil(operand_one - operand_two))
 
 app.run()
 
