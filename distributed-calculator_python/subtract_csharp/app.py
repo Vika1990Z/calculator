@@ -21,5 +21,5 @@ def subtract():
     print(f"Subtraction from {operand_one} - {operand_two}", flush=True)
     return jsonify(math.ceil(operand_one - operand_two))
 
-app.run()
+app.run(host='0.0.0.0', port=7000)
 

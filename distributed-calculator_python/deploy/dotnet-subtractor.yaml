@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: subtract
-        image: vika1990z/substraction_app:latest
+        image: vika1990z/substraction_app_python:latest
         ports:
         - containerPort: 7000
         imagePullPolicy: Always

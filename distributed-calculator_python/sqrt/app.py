@@ -19,7 +19,7 @@ def sqrt():
     content = request.json
     [operand_one] = [float(content['operandOne'])]
     print(f"Square root of {operand_one}", flush=True)
-    return jsonify(math.sqrt(operand_one)
+    return jsonify(math.sqrt(operand_one))
 
-app.run()
+app.run(host='0.0.0.0', port=9000)
 
