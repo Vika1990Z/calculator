@@ -6,7 +6,6 @@ pip3 install wheel python-dotenv flask_cors flask
 sudo dapr run --app-id addapp --app-port 6000 --dapr-http-port 3513 python3 app.py
 sudo dapr run --app-id multiplyapp --app-port 5000 --dapr-http-port 3511 python3 app.py
 sudo dapr run --app-id divideapp --app-port 4000 --dapr-http-port 3515 python3 app.py
-sudo dapr run --app-id multiplyapp --app-port 5000 --dapr-http-port 3518 python3 app.py
 sudo dapr run --app-id subtractapp --app-port 7000 --dapr-http-port 3514 python3 app.py
 sudo dapr run --app-id sqrtapp --app-port 9000 --dapr-http-port 3519 python3 app.py
 

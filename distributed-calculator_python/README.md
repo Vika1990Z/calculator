@@ -41,64 +41,39 @@ These instructions start the four calculator operator apps (add, subtract, multi
 
 
 1. Add App - Open a terminal window and navigate to the add_go directory and follow the steps below:
-- Install the gorilla/mux package: Run:
+- Install required packages
    ```bash
-   go get -u github.com/gorilla/mux
+   pip3 install wheel python-dotenv flask_cors flask
    ```
-- Build the app. Run:
+
+- Start dapr using the command:
    ```bash
-   go build app.go
-   ```
-- Run dapr using the command:
-   ```bash
-   dapr run --app-id addapp --app-port 6000 --dapr-http-port 3503 ./app
-   ```
+   sudo dapr run --app-id addapp --app-port 6000 --dapr-http-port 3513 python3 app.py
+   ```   
 
 2. Subtract App - Open a terminal window and navigate to the subtract_csharp directory and follow the steps below:
-
-- Build the app. Run:
+- Start dapr using the command:
    ```bash
-   go build app.go
-   ```
-- Run dapr using the command:
-   ```bash
-   dapr run --app-id subtractapp --app-port 7000 --dapr-http-port 3504 ./app
-   ```
-
+   sudo dapr run --app-id subtractapp --app-port 7000 --dapr-http-port 3514 python3 app.py
+   ```   
 
 3. Divide App - Open a terminal window and navigate to the divide_node directory and follow the steps below:
-
-- Build the app. Run:
+- Start dapr using the command:
    ```bash
-   go build app.go
-   ```
-- Run dapr using the command:
-   ```bash
-   dapr run --app-id divideapp --app-port 4000 --dapr-http-port 3505 ./app
-   ```
+   sudo dapr run --app-id divideapp --app-port 4000 --dapr-http-port 3515 python3 app.py
+   ```  
 
 4. Multiply App - Open a terminal window and navigate to the multiply_python directory and follow the steps below:
-
-- Build the app. Run:
+- Start dapr using the command:
    ```bash
-   go build app.go
-   ```
-- Run dapr using the command:
-   ```bash
-   dapr run --app-id multiplyapp --app-port 5000 --dapr-http-port 3508 ./app
+   sudo dapr run --app-id multiplyapp --app-port 5000 --dapr-http-port 3511 python3 app.py
    ```
 
 4. Sqrt App - Open a terminal window and navigate to the sqrt directory and follow the steps below:
-
-- Build the app. Run:
+- Start dapr using the command:
    ```bash
-   go build app.go
+   sudo dapr run --app-id sqrtapp --app-port 9000 --dapr-http-port 3519 python3 app.py
    ```
-- Run dapr using the command:
-   ```bash
-   dapr run --app-id sqrtapp --app-port 9000 --dapr-http-port 3509 ./app
-   ```
-
 
 6. Frontend Calculator app - Open a terminal window and navigate to the react-calculator directory and follow the steps below:
 
@@ -110,12 +85,12 @@ These instructions start the four calculator operator apps (add, subtract, multi
 
 - Start Dapr using command below:
    ```bash
-   dapr run --app-id frontendapp --app-port 8080 --dapr-http-port 3500 node server.js
+   sudo dapr run --app-id frontendapp --app-port 8080 --dapr-http-port 3500 node server.js
    ```
 
 7. Open a browser window and go to http://localhost:8080/. From here, you can enter the different operations.
 
-    ![Calculator Screenshot](./img/calculator-screenshot.png)
+    ![Calculator Screenshot](./img/calculator-screenshot2.png)
 
 7. Open your browser's console window (using F12 key) to see the logs produced as you use the calculator. Note that each time you click a button, you see logs that indicate state persistence and the different apps that are contacted to perform the operation. 
 
@@ -234,7 +209,7 @@ subtractapp-dapr              ClusterIP      10.0.146.253   <none>          80/T
 Each service ending in "-dapr" represents your services respective sidecars, while the `calculator-front-end` service represents the external load balancer for the React calculator front-end.
 
 
-![Calculator Screenshot](./img/calculator-screenshot.png)
+![Calculator Screenshot](./img/calculator-screenshot2.png)
 
 6. Open your browser's console window (using F12 key) to see the logs produced as you use the calculator. Note that each time you click a button, you see logs that indicate state persistence: 
 
