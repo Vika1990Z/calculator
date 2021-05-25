@@ -1,6 +1,22 @@
-
-
 **Running the quickstart locally**
+sudo apt  install golang-go
+
+sudo apt  install docker.io
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+apt-cache policy docker-ce
+sudo apt install docker-ce
+sudo systemctl status docker
+sudo systemctl restart docker
+sudo chmod 666 /var/run/docker.sock
+docker login
+
+dapr init
+docker ps
+
+sudo apt install npm
+
 cd <working dir>
 go get -u github.com/gorilla/mux
 go build app.go
@@ -43,23 +59,43 @@ sudo docker push vika1990z/sqrt_app:latest
 
 **Running the quickstart in a Kubernetes environment**
 -Access to the cluster
-
-sudo apt install docker-ce
-sudo apt install apt-transport-https ca-certificates curl software-properties-common
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
 sudo apt update
-apt-cache policy docker-ce
-sudo apt install docker-ce
-sudo systemctl restart docker
-sudo systemctl status docker
-sudo chmod 666 /var/run/docker.sock
-docker login
+sudo apt install python3-pip
+sudo pip3 install python-openstackclient
+sudo pip3 install python-magnumclient
+nano openrc
+. openrc
+openstack coe cluster list
+mkdir ~/testc2_cluster
+cd ~/testc2_cluster
+openstack coe cluster config --dir ~/testc2_cluster/ testc2
+export KUBECONFIG=/home/ubuntu/testc2_cluster/config
 
+-Install kubectl
+curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl
+kubectl version --client
+kubectl get nodes
+
+-Install dapr
+wget -q https://raw.githubusercontent.com/dapr/cli/master/install/install.sh -O - | /bin/bash
 dapr init -k
+
+-Create and configure a Redis store
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm repo update
+helm install redis bitnami/redis
+kubectl get pods
+
+-Configure Dapr components
+nano redis-state.yaml
+nano redis-pubsub.yaml
 kubectl apply -f redis-state.yaml
 kubectl apply -f redis-pubsub.yaml
+kubectl get pods --all-namespaces
 
+-Deploy Application
 git clone https://github.com/Vika1990Z/calculator.git
 cd deploy
 kubectl apply -f appconfig.yaml

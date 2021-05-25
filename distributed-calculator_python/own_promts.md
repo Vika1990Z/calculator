@@ -1,18 +1,34 @@
 
 **Running the quickstart locally**
+sudo apt  install docker.io
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+apt-cache policy docker-ce
+sudo apt install docker-ce
+sudo systemctl status docker
+sudo systemctl restart docker
+sudo chmod 666 /var/run/docker.sock
+docker login
+
+dapr init
+docker ps
+
+sudo apt install npm
+
 cd <working dir>
 pip3 install wheel python-dotenv flask_cors flask
 
-sudo dapr run --app-id addapp --app-port 6000 --dapr-http-port 3513 python3 app.py
-sudo dapr run --app-id multiplyapp --app-port 5000 --dapr-http-port 3511 python3 app.py
-sudo dapr run --app-id divideapp --app-port 4000 --dapr-http-port 3515 python3 app.py
-sudo dapr run --app-id subtractapp --app-port 7000 --dapr-http-port 3514 python3 app.py
-sudo dapr run --app-id sqrtapp --app-port 9000 --dapr-http-port 3519 python3 app.py
+dapr run --app-id addapp --app-port 6000 --dapr-http-port 3513 python3 app.py
+dapr run --app-id multiplyapp --app-port 5000 --dapr-http-port 3511 python3 app.py
+dapr run --app-id divideapp --app-port 4000 --dapr-http-port 3515 python3 app.py
+dapr run --app-id subtractapp --app-port 7000 --dapr-http-port 3514 python3 app.py
+dapr run --app-id sqrtapp --app-port 9000 --dapr-http-port 3519 python3 app.py
 
 npm install
 npm install cjs-module
 npm run buildclient
-sudo dapr run --app-id frontendapp --app-port 8080 --dapr-http-port 3500 node server.js
+dapr run --app-id frontendapp --app-port 8080 --dapr-http-port 3500 node server.js
 
 Open a browser window and go to http://localhost:8080/
 
