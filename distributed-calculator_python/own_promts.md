@@ -13,7 +13,7 @@ sudo dapr run --app-id sqrtapp --app-port 9000 --dapr-http-port 3519 python3 app
 npm install
 npm install cjs-module
 npm run buildclient
-dapr run --app-id frontendapp --app-port 8080 --dapr-http-port 3500 node server.js
+sudo dapr run --app-id frontendapp --app-port 8080 --dapr-http-port 3500 node server.js
 
 Open a browser window and go to http://localhost:8080/
 
@@ -23,18 +23,23 @@ sudo docker tag app.py vika1990z/adder_app_python:latest
 sudo docker login
 sudo docker push vika1990z/adder_app_python:latest
 
+sudo docker build -t app.py .
 sudo docker tag app.py vika1990z/dividing_app_python:latest
 sudo docker push vika1990z/dividing_app_python:latest
 
+sudo docker build .
 sudo docker tag vika1990z/react_app_python:latest
 sudo docker push vika1990z/react_app_python:latest
 
+sudo docker build -t app.py .
 sudo docker tag app.py vika1990z/multiplication_app_python:latest
 sudo docker push vika1990z/multiplication_app_python:latest
 
+sudo docker build -t app.py .
 sudo docker tag app.py vika1990z/substraction_app_python:latest
 sudo docker push vika1990z/substraction_app_python:latest
 
+sudo docker build -t app.py .
 sudo docker tag app.py vika1990z/sqrt_app_python:latest
 sudo docker push vika1990z/sqrt_app_python:latest
 
